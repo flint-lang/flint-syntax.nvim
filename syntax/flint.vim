@@ -4,7 +4,7 @@ if exists("b:current_syntax")
 endif
 
 " Create a super-cluster which contains all matching groups
-syntax cluster flintTop contains=flintComment,flintTodo,flintKeyword,flintStatement,flintControlFlow,flintRepetition,flintConditional,flintException,flintPreProc,flintStorageClass,flintPrimitive,flintConstant,flintNumber,tupleAccess,flintCharacter,flintString,flintEscape,flintIString,flintOperator,comparisonOperator,assignOperator,mathOperator,unaryOperator,logicOperator,otherOperator,flintDelimiter,flintFunction,flintType,flintIdentifier
+syntax cluster flintTop contains=flintComment,flintTodo,flintKeyword,flintStatement,flintControlFlow,flintRepetition,flintConditional,flintException,flintPreProc,flintStorageClass,flintPrimitive,flintConstant,flintNumber,tupleAccess,flintCharacter,flintString,flintEscape,flintIString,flintOperator,comparisonOperator,assignOperator,mathOperator,unaryOperator,logicOperator,otherOperator,flintDelimiter,flintFunction,flintType,flintOptionalType,flintIdentifier
 
 " Comments
 syntax keyword flintTodo contained TODO FIXME XXX
@@ -30,11 +30,11 @@ syntax keyword flintConditional
 syntax keyword flintException
       \ throw catch
 syntax keyword flintPrimitive
-      \ str fn bp Opt bool u8 i32 i64 u32 u64 f32 f64 bool8
+      \ str fn bp bool u8 i32 i64 u32 u64 f32 f64 bool8
       \ i32x2 i32x3 i32x4 i32x8 i64x2 i64x3 i64x4
       \ f32x2 f32x3 f32x4 f32x8 f64x2 f64x3 f64x4
 syntax keyword flintConstant
-      \ true false None Some
+      \ true false none
 
 " Numbers
 syntax match flintNumber "\<\d\+\(\.\d\+\)\?\>"
@@ -60,6 +60,7 @@ syntax match flintDelimiter ";\|:\|_\|(\|)\|{\|}\|\[\|\]"
 " Definitions
 syntax match flintFunction "[a-z_][A-Za-z0-9_]*\ze("
 syntax match flintType "[A-Z][A-Za-z0-9_]*"
+syntax match flintOptionalType "?\ze[^.]"
 syntax match flintIdentifier "[^a-z]\zs[a-z_][A-Za-z0-9_]*\ze[^(A-Za-z0-9_]"
 
 " --- Link the flint-groups to the already existent highlighting groups ---
@@ -102,6 +103,7 @@ hi def link flintDelimiter      Delimiter
 " Definitions
 hi def link flintFunction       Function
 hi def link flintType           Structure
+hi def link flintOptionalType   Type
 hi def link flintIExpr          Special
 hi def link flintIdentifier     Identifier
 
