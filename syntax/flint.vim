@@ -60,7 +60,7 @@ syntax match flintDelimiter ";\|:\|_\|(\|)\|{\|}\|\[\|\]"
 " Definitions
 syntax match flintFunction "[a-z_][A-Za-z0-9_]*\ze("
 syntax match flintType "[A-Z][A-Za-z0-9_]*"
-syntax match flintOptionalType "?\ze[^.]"
+syntax match flintOptionalType "?\ze[^.?]"
 syntax match flintIdentifier "[^a-z]\zs[a-z_][A-Za-z0-9_]*\ze[^(A-Za-z0-9_]"
 syntax match flintConstantName "[^a-zA-Z_]\zs[A-Z_][A-Z0-9_]*\ze[^(A-Za-z0-9_]"
 
