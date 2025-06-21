@@ -4,7 +4,7 @@ if exists("b:current_syntax")
 endif
 
 " Create a super-cluster which contains all matching groups
-syntax cluster flintTop contains=flintComment,flintTodo,flintKeyword,flintStatement,flintControlFlow,flintRepetition,flintConditional,flintException,flintPreProc,flintStorageClass,flintPrimitive,flintConstant,flintNumber,tupleAccess,flintCharacter,flintString,flintEscape,flintIString,flintOperator,comparisonOperator,assignOperator,mathOperator,unaryOperator,logicOperator,otherOperator,flintDelimiter,flintFunction,flintType,flintOptionalType,flintIdentifier
+syntax cluster flintTop contains=flintComment,flintTodo,flintKeyword,flintStatement,flintControlFlow,flintRepetition,flintConditional,flintException,flintPreProc,flintStorageClass,flintPrimitive,flintConstant,flintNumber,tupleAccess,flintCharacter,flintString,flintEscape,flintIString,flintOperator,comparisonOperator,assignOperator,mathOperator,unaryOperator,logicOperator,otherOperator,flintDelimiter,flintFunction,flintType,flintOptionalType,flintIdentifier,flintConstantName
 
 " Comments
 syntax keyword flintTodo contained TODO FIXME XXX
@@ -62,6 +62,7 @@ syntax match flintFunction "[a-z_][A-Za-z0-9_]*\ze("
 syntax match flintType "[A-Z][A-Za-z0-9_]*"
 syntax match flintOptionalType "?\ze[^.]"
 syntax match flintIdentifier "[^a-z]\zs[a-z_][A-Za-z0-9_]*\ze[^(A-Za-z0-9_]"
+syntax match flintConstantName "[^a-zA-Z_]\zs[A-Z_][A-Z0-9_]*\ze[^(A-Za-z0-9_]"
 
 " --- Link the flint-groups to the already existent highlighting groups ---
 " Comments
@@ -106,5 +107,6 @@ hi def link flintType           Structure
 hi def link flintOptionalType   Type
 hi def link flintIExpr          Special
 hi def link flintIdentifier     Identifier
+hi def link flintConstantName   Constant
 
 let b:current_syntax = "flint"
