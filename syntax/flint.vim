@@ -4,13 +4,16 @@ if exists("b:current_syntax")
 endif
 
 " Create a super-cluster which contains all matching groups
-syntax cluster flintTop contains=flintComment,flintTodo,flintKeyword,flintStatement,flintControlFlow,flintRepetition,flintConditional,flintException,flintPreProc,flintStorageClass,flintPrimitive,flintConstant,flintNumber,tupleAccess,flintCharacter,flintString,flintEscape,flintIString,flintOperator,comparisonOperator,assignOperator,mathOperator,unaryOperator,logicOperator,otherOperator,flintDelimiter,flintFunction,flintType,flintOptionalType,flintIdentifier,flintConstantName
+syntax cluster flintTop contains=flintComment,flintAnnotation,flintTodo,flintKeyword,flintStatement,flintControlFlow,flintRepetition,flintConditional,flintException,flintPreProc,flintStorageClass,flintPrimitive,flintConstant,flintNumber,tupleAccess,flintCharacter,flintString,flintEscape,flintIString,flintOperator,comparisonOperator,assignOperator,mathOperator,unaryOperator,logicOperator,otherOperator,flintDelimiter,flintFunction,flintType,flintOptionalType,flintIdentifier,flintConstantName
 
 " Comments
 syntax keyword flintTodo contained TODO FIXME XXX
 syntax match flintDescriptor "@[A-Za-z]*"
 syntax match flintComment "//.*$" contains=flintTodo,flintDescriptor
 syntax region flintComment start="/\*" end="\*/" contains=flintTodo,flintDescriptor
+
+" Annotations
+syntax match flintAnnotation "#.*$"
 
 " Keywords
 syntax keyword flintKeyword
@@ -69,6 +72,9 @@ syntax match flintConstantName "[^a-zA-Z_]\zs[A-Z_][A-Z0-9_]*\ze[^(A-Za-z0-9_]"
 hi def link flintTodo           Todo
 hi def link flintDescriptor     Special
 hi def link flintComment        Comment
+
+" Annotations
+hi def link flintAnnotation     Comment
 
 " Keywords
 hi def link flintKeyword        Keyword
