@@ -4,10 +4,10 @@ if exists("b:current_syntax")
 endif
 
 " Create a super-cluster which contains all matching groups
-syntax cluster flintTop contains=flintComment,flintAnnotation,flintTodo,flintKeyword,flintStatement,flintControlFlow,flintRepetition,flintConditional,flintException,flintPreProc,flintStorageClass,flintPrimitive,flintConstant,flintNumber,tupleAccess,flintCharacter,flintString,flintEscape,flintIString,flintOperator,comparisonOperator,assignOperator,mathOperator,unaryOperator,logicOperator,otherOperator,flintDelimiter,flintFunction,flintType,flintOptionalType,flintIdentifier,flintConstantName
+syntax cluster flintTop contains=flintComment,flintAnnotation,flintTodo,flintKeyword,flintStatement,flintControlFlow,flintRepetition,flintConditional,flintException,flintPreProc,flintStorageClass,flintPrimitive,flintConstant,flintNumber,flintCharacter,flintString,flintEscape,flintIString,flintOperator,comparisonOperator,assignOperator,mathOperator,unaryOperator,logicOperator,otherOperator,flintDelimiter,variantExtractOperator,tupleAccess,flintFunction,flintConstantName,flintType,flintOptionalType,flintIdentifier
 
 " Comments
-syntax keyword flintTodo contained TODO FIXME XXX
+syntax keyword flintTodo contained TODO FIXME NOTE WARNING
 syntax match flintDescriptor "@[A-Za-z]*"
 syntax match flintComment "//.*$" contains=flintTodo,flintDescriptor
 syntax region flintComment start="/\*" end="\*/" contains=flintTodo,flintDescriptor
@@ -33,15 +33,15 @@ syntax keyword flintConditional
 syntax keyword flintException
       \ throw catch
 syntax keyword flintPrimitive
-      \ str fn bp bool u8 i32 i64 u32 u64 f32 f64 bool8 anyerror
+      \ str fn bp void bool bool8 anyerror
+      \ u8 i32 i64 u32 u64 f32 f64
       \ i32x2 i32x3 i32x4 i32x8 i64x2 i64x3 i64x4
       \ f32x2 f32x3 f32x4 f32x8 f64x2 f64x3 f64x4
 syntax keyword flintConstant
       \ true false none
 
 " Numbers
-syntax match flintNumber "\<\d\+\(\.\d\+\)\?\>"
-syntax match tupleAccess "\$\d\+"
+syntax match flintNumber "\<\d\+\(_\d\+\)*\(\.\d\+\(_\d\+\)*\)\?\>"
 
 " Strings
 syntax region flintIExpr matchgroup=flintDelimiter start="{" end="}"  contains=@flintTop
@@ -59,13 +59,15 @@ syntax keyword logicOperator
       \ not and or
 syntax match otherOperator "->\|::\||>\|?\.\|??\|!\."
 syntax match flintDelimiter ";\|:\|_\|(\|)\|{\|}\|\[\|\]"
+syntax match variantExtractOperator "?\ze[([]"
+syntax match tupleAccess "\$\d\+"
 
 " Definitions
-syntax match flintFunction "[a-z_][A-Za-z0-9_]*\ze("
-syntax match flintType "[A-Z][A-Za-z0-9_]*"
-syntax match flintOptionalType "?\ze[^.?]"
-syntax match flintIdentifier "[^a-z]\zs[a-z_][A-Za-z0-9_]*\ze[^(A-Za-z0-9_]"
-syntax match flintConstantName "[^a-zA-Z_]\zs[A-Z_][A-Z0-9_]*\ze[^(A-Za-z0-9_]"
+syntax match flintType "\<[A-Z][A-Za-z0-9_]*\>"
+syntax match flintConstantName "\<[A-Z_][A-Z0-9_]*\>"
+syntax match flintIdentifier "\<[a-z_][A-Za-z0-9_]*\>"
+syntax match flintFunction "\<[a-z_][A-Za-z0-9_]*\ze("
+syntax match flintOptionalType "?\ze[^.?([]"
 
 " --- Link the flint-groups to the already existent highlighting groups ---
 " Comments
@@ -88,10 +90,6 @@ hi def link flintStorageClass   StorageClass
 hi def link flintPrimitive      Type
 hi def link flintConstant       Constant
 
-" Numbers
-hi def link flintNumber         Number
-hi def link tupleAccess         SpecialChar
-
 " Strings
 hi def link flintEscape         SpecialChar
 hi def link flintCharacter      Character
@@ -106,6 +104,7 @@ hi def link unaryOperator       Operator
 hi def link logicOperator       Operator
 hi def link otherOperator       Operator
 hi def link flintDelimiter      Delimiter
+hi def link variantExtractOperator Operator
 
 " Definitions
 hi def link flintFunction       Function
@@ -114,5 +113,9 @@ hi def link flintOptionalType   Type
 hi def link flintIExpr          Special
 hi def link flintIdentifier     Identifier
 hi def link flintConstantName   Constant
+
+" Numbers
+hi def link flintNumber         Number
+hi def link tupleAccess         SpecialChar
 
 let b:current_syntax = "flint"
