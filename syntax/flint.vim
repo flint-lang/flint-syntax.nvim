@@ -17,7 +17,7 @@ syntax match flintAnnotation "#.*$"
 
 " Keywords
 syntax keyword flintKeyword
-      \ def data func entity enum variant error test
+      \ def data func entity enum variant error test extern export
 syntax keyword flintThreading
       \ spawn sync lock
 syntax keyword flintControlFlow
