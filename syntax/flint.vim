@@ -35,6 +35,7 @@ syntax keyword flintException
 syntax keyword flintPrimitive
       \ str fn bp void bool bool8 anyerror
       \ u8 i32 i64 u32 u64 f32 f64
+      \ u8x2 u8x3 u8x4 u8x8
       \ i32x2 i32x3 i32x4 i32x8 i64x2 i64x3 i64x4
       \ f32x2 f32x3 f32x4 f32x8 f64x2 f64x3 f64x4
 syntax keyword flintConstant
