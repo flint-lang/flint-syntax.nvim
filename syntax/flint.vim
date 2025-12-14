@@ -23,7 +23,7 @@ syntax keyword flintThreading
 syntax keyword flintControlFlow
       \ return break continue
 syntax keyword flintPreProc
-      \ use as requires extends link
+      \ use as type requires extends link hook
 syntax keyword flintStorageClass
       \ const mut shared
 syntax keyword flintRepetition
