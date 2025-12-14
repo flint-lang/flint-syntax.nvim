@@ -54,10 +54,11 @@ syntax region flintIString start='\$"' end='"' contains=flintEscape,flintIExpr
 " Operators
 syntax match comparisonOperator "==\|!=\|<=\|<\|>\|>="
 syntax match assignOperator "=\|:=\|+=\|-=\|*=\|/="
-syntax match mathOperator "+\|-\|*\|%\|/"
+syntax match mathOperator "+\|-\|*\|%"
 syntax match unaryOperator "--\|++\|!\|\."
 syntax keyword logicOperator
       \ not and or
+syntax match divisionOperator "/\ze[^/]"
 syntax match otherOperator "->\|::\||>\|?\.\|??\|!\."
 syntax match flintDelimiter ";\|:\|_\|(\|)\|{\|}\|\[\|\]"
 syntax match variantExtractOperator "?\ze[([]"
@@ -103,6 +104,7 @@ hi def link assignOperator      Operator
 hi def link mathOperator        Operator
 hi def link unaryOperator       Operator
 hi def link logicOperator       Operator
+hi def link divisionOperator    Operator
 hi def link otherOperator       Operator
 hi def link flintDelimiter      Delimiter
 hi def link variantExtractOperator Operator
