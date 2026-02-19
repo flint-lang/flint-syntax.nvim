@@ -55,7 +55,7 @@ syntax region flintIString start='\$"' end='"' contains=flintEscape,flintIExpr
 syntax match comparisonOperator "==\|!=\|<=\|<\|>\|>="
 syntax match assignOperator "=\|:=\|+=\|-=\|*=\|/="
 syntax match mathOperator "+\|-\|*\|%"
-syntax match unaryOperator "--\|++\|!\|\.|&"
+syntax match unaryOperator "--\|++\|!\|\.\|&"
 syntax keyword logicOperator
       \ not and or
 syntax match divisionOperator "/\ze[^/]"
