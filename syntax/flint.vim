@@ -59,7 +59,7 @@ syntax match unaryOperator "--\|++\|!\|\.\|&"
 syntax keyword logicOperator
       \ not and or
 syntax match divisionOperator "/\ze[^/]"
-syntax match otherOperator "->\|::\||>\|?\.\|??\|!\."
+syntax match otherOperator "->\|::\||>\|?\.\|??\|!\.\|_"
 syntax match flintDelimiter ";\|:\|_\|(\|)\|{\|}\|\[\|\]"
 syntax match variantExtractOperator "?\ze[([]"
 syntax match tupleAccess "\$\d\+"
