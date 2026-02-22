@@ -4,7 +4,7 @@ if exists("b:current_syntax")
 endif
 
 " Create a super-cluster which contains all matching groups
-syntax cluster flintTop contains=flintComment,flintAnnotation,flintTodo,flintKeyword,flintStatement,flintControlFlow,flintRepetition,flintConditional,flintException,flintPreProc,flintStorageClass,flintPrimitive,flintConstant,flintNumber,flintCharacter,flintString,flintEscape,flintIString,flintOperator,comparisonOperator,assignOperator,mathOperator,unaryOperator,logicOperator,otherOperator,flintDelimiter,variantExtractOperator,tupleAccess,flintFunction,flintConstantName,flintType,flintOptionalType,flintIdentifier
+syntax cluster flintTop contains=flintComment,flintAnnotation,flintTodo,flintKeyword,flintStatement,flintControlFlow,flintRepetition,flintConditional,flintException,flintPreProc,flintStorageClass,flintPrimitive,flintConstant,flintNumber,flintCharacter,flintString,flintEscape,flintIString,flintDelimiter,flintOperator,comparisonOperator,assignOperator,mathOperator,unaryOperator,logicOperator,otherOperator,variantExtractOperator,tupleAccess,flintFunction,flintConstantName,flintType,flintOptionalType,flintIdentifier
 
 " Comments
 syntax keyword flintTodo contained TODO FIXME NOTE WARNING
@@ -51,23 +51,25 @@ syntax region flintCharacter start="'" end="'" contains=flintEscape
 syntax region flintString start='"' end='"' contains=flintEscape
 syntax region flintIString start='\$"' end='"' contains=flintEscape,flintIExpr
 
+" Delimiter
+syntax match flintDelimiter ";\|:\|(\|)\|{\|}\|\[\|\]"
+
 " Operators
 syntax match comparisonOperator "==\|!=\|<=\|<\|>\|>="
-syntax match assignOperator "=\|:=\|+=\|-=\|*=\|/="
+syntax match assignOperator ":=\|=\|+=\|-=\|*=\|/="
 syntax match mathOperator "+\|-\|*\|%"
 syntax match unaryOperator "--\|++\|!\|\.\|&"
 syntax keyword logicOperator
       \ not and or
 syntax match divisionOperator "/\ze[^/]"
 syntax match otherOperator "->\|::\||>\|?\.\|??\|!\.\|_"
-syntax match flintDelimiter ";\|:\|_\|(\|)\|{\|}\|\[\|\]"
 syntax match variantExtractOperator "?\ze[([]"
 syntax match tupleAccess "\$\d\+"
 
 " Definitions
 syntax match flintType "\<[A-Z][A-Za-z0-9_]*\>"
-syntax match flintConstantName "\<[A-Z_][A-Z0-9_]*\>"
-syntax match flintIdentifier "\<[a-z_][A-Za-z0-9_]*\>"
+syntax match flintConstantName "\<\([A-Z][A-Z0-9_]*\|[A-Z_][A-Z0-9_]\+\)\>"
+syntax match flintIdentifier "\<\([a-z][A-Za-z0-9_]*\|[a-z_][A-Za-z0-9_]\+\)\>"
 syntax match flintFunction "\<[a-z_][A-Za-z0-9_]*\ze("
 syntax match flintOptionalType "?\ze[^.?([]"
 
