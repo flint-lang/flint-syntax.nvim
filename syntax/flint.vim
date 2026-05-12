@@ -25,7 +25,7 @@ syntax keyword flintControlFlow
 syntax keyword flintPreProc
       \ use as type requires extends link hook
 syntax keyword flintStorageClass
-      \ const mut shared
+      \ const mut shared persistent
 syntax keyword flintRepetition
       \ for in while do
 syntax keyword flintConditional
