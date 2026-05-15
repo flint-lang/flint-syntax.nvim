@@ -61,7 +61,7 @@ syntax match mathOperator "+\|-\|*\|%"
 syntax match unaryOperator "--\|++\|!\|\.\|&"
 syntax keyword logicOperator
       \ not and or
-syntax match divisionOperator "/\ze[^/]"
+syntax match divisionOperator "/\ze[^/*]"
 syntax match otherOperator "->\||>\|?\.\|??\|!\.\|_"
 syntax match variantExtractOperator "?\ze[([]"
 syntax match tupleAccess "\$\d\+"
