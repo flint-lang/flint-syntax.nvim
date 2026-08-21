@@ -2,5 +2,5 @@
 augroup flint_filetype
   autocmd!
   " any file ending in .ft is Flint
-  autocmd BufRead,BufNewFile *.ft setfiletype flint
+  autocmd BufRead,BufNewFile *.ft setlocal filetype=flint
 augroup END
