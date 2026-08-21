@@ -17,13 +17,13 @@ syntax match flintAnnotation "#.*$"
 
 " Keywords
 syntax keyword flintKeyword
-      \ def data func entity enum variant error test extern export
+      \ def data func interface object enum variant error test extern export
 syntax keyword flintThreading
       \ spawn sync lock
 syntax keyword flintControlFlow
       \ return break continue
 syntax keyword flintPreProc
-      \ use as type requires extends link hook
+      \ use as type requires implements
 syntax keyword flintStorageClass
       \ const mut shared persistent
 syntax keyword flintRepetition
