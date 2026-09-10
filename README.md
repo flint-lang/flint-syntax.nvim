@@ -1,6 +1,10 @@
 # flint-syntax.nvim
 
-The Flint syntax highlighter for Neovim. To add the highlighter to Neovim just add these lines inside your lazyvim setup section like this:
+The Flint syntax highlighter for Vim and Neovim.
+
+## Neovim (Lazy)
+
+To add the highlighter to Neovim just add these lines inside your azyvim setup section like this:
 
 ```lua
 require('lazy').setup({
@@ -13,12 +17,37 @@ require('lazy').setup({
 })
 ```
 
-That's it, no more setup required than this! By just adding the above line to your `init.lua` file you get:
+That's it, no more setup required than this.
 
-- Syntax highlighting for Flint files
-- Sensible indentation defaults (tab width of 4)
-- `commentstring` set to `// %s`, so commenting with `gc` etc. works out of the box
-- Automatic LSP setup: if `fls` is in your PATH, it is started automatically for Flint buffers
+## Vim (native packages)
+
+Vim 8+ loads plugins from `pack/*/start/*` directories automatically. Just clone the repository there:
+
+```sh
+git clone https://github.com/flint-lang/flint-syntax.nvim.git ~/.vim/pack/flint-lang/start/flint-syntax.nvim
+```
+
+Make sure filetype plugins and syntax highlighting are enabled in your `.vimrc`:
+
+```vim
+filetype plugin indent on
+syntax on
+```
+
+## Vim (vim-plug)
+
+With vim-plug installed, add this to your `.vimrc`:
+
+```vim
+filetype plugin indent on
+syntax on
+
+call plug#begin()
+Plug 'flint-lang/flint-syntax.nvim'
+call plug#end()
+```
+
+Then run `:PlugInstall`.
 
 ## Configuration
 
