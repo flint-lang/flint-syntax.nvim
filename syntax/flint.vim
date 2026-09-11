@@ -23,7 +23,7 @@ syntax keyword flintThreading
 syntax keyword flintControlFlow
       \ return break continue
 syntax keyword flintPreProc
-      \ use as type requires implements
+      \ use as requires implements
 syntax keyword flintStorageClass
       \ const mut shared persistent
 syntax keyword flintRepetition
@@ -33,7 +33,7 @@ syntax keyword flintConditional
 syntax keyword flintException
       \ throw catch
 syntax keyword flintPrimitive
-      \ str fn bp void bool bool8 anyerror opaque
+      \ str fn bp void bool bool8 anyerror opaque type
       \ u8 i8 u16 i16 u32 i32 u64 i64 int f32 f64 float
       \ u8x2 u8x3 u8x4 u8x8 i8x2 i8x3 i8x4 i8x8
       \ u16x2 u16x3 u16x4 u16x8 i16x2 i16x3 i16x4 i16x8
