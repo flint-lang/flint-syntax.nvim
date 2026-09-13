@@ -72,7 +72,7 @@ syntax match tupleAccess "\$\d\+"
 syntax match flintType "\<[A-Z][A-Za-z0-9_]*\>"
 syntax match flintConstantName "\<\([A-Z][A-Z0-9_]*\|[A-Z_][A-Z0-9_]\+\)\>"
 syntax match flintIdentifier "\(::\)\@<!\zs\<\([a-z][A-Za-z0-9_]*\|[a-z_][A-Za-z0-9_]\+\)\>"
-syntax match flintFunction "\<[a-z_][A-Za-z0-9_]*\>\ze("
+syntax match flintFunction "\<[a-z_][A-Za-z0-9_]*\>\ze\%(\[[^\]]*]\)\?("
 "syntax match flintFunctionReference "::\zs\<[a-z_][A-Za-z0-9_]*\>"
 syntax match flintFunctionReference "::[a-z_][A-Za-z0-9_]*" contains=flintFunctionRefOp
 syntax match flintFunctionRefOp "::" contained
